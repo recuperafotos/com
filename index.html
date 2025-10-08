@@ -1,178 +1,334 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recupera Fotos - Método Exclusivo</title>
-<style>
-/* Reset */
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: Arial, sans-serif; background:#f4f4f4; color:#333; line-height:1.6;}
-a {text-decoration:none;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recupere Fotos Perdidas - [Nome da Sua Empresa]</title>
+    <style>
+        /* ESTILOS CSS */
+        :root {
+            /* Cores de Destaque para o Tema Escuro */
+            --cor-primaria-escuro: #00ff00; /* Verde néon para títulos */
+            --cor-secundaria-escuro: #28a745; /* Verde de sucesso/chamativo para botões */
+            --cor-fundo-escuro: #1a1a1a; /* Fundo bem escuro */
+            --cor-texto-claro: #f0f0f0; /* Texto claro */
+            --cor-card-fundo-escuro: #2a2a2a; /* Fundo dos cards mais escuro */
+            --cor-bordas-escuro: #3a3a3a; /* Bordas e divisores */
+        }
 
-/* Header / Banner */
-header {
-  background: linear-gradient(90deg,#4CAF50,#66BB6A);
-  color:white;
-  text-align:center;
-  padding:100px 20px 120px;
-  position: relative;
-}
-header h1 {font-size:3em; margin-bottom:15px;}
-header p {font-size:1.5em; margin-bottom:30px;}
-.botao-comprar {
-  background:#FF9800;
-  color:white;
-  font-weight:bold;
-  padding:20px 40px;
-  border-radius:8px;
-  display:inline-block;
-  font-size:1.3em;
-  transition: all 0.3s;
-}
-.botao-comprar:hover { background:#FB8C00; transform: scale(1.05); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-/* Main */
-main { max-width:1000px; margin:-80px auto 30px; padding:0 20px; position:relative; z-index:10; }
+        body {
+            background-color: var(--cor-fundo-escuro);
+            color: var(--cor-texto-claro);
+            line-height: 1.6;
+        }
 
-/* Seção história/dor */
-.historia {
-  background:white; padding:40px 20px; border-radius:10px; margin-bottom:40px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.1);
-}
-.historia h2 { color:#4CAF50; margin-bottom:20px; }
-.historia p { font-size:1.1em; margin-bottom:15px; }
+        header {
+            background-color: var(--cor-fundo-escuro);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--cor-bordas-escuro);
+        }
 
-/* Produto */
-.produto {
-  background:white; padding:40px 20px; border-radius:10px; text-align:center;
-  box-shadow:0 8px 25px rgba(0,0,0,0.15); margin-bottom:50px;
-}
-.produto img {max-width:100%; border-radius:10px; margin-bottom:20px;}
-.produto h2 {margin:20px 0 15px; font-size:2em; color:#4CAF50;}
-.produto p {font-size:1.1em; margin-bottom:20px;}
-.preco {font-size:2em; color:#e91e63; margin-bottom:20px;}
+        header h1 {
+            font-size: 3em;
+            color: var(--cor-primaria-escuro);
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            margin-bottom: 5px;
+        }
 
-/* Benefícios */
-.beneficios {display:flex; flex-wrap:wrap; justify-content:space-between; margin-bottom:50px;}
-.beneficio {
-  background:#e8f5e9; flex:0 0 48%; margin-bottom:20px; padding:25px;
-  border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.beneficio:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
 
-/* Antes / Depois */
-.antes-depois { display:flex; flex-wrap:wrap; justify-content:space-between; margin-bottom:50px; }
-.antes, .depois { flex:0 0 48%; text-align:center; margin-bottom:20px; }
-.antes img, .depois img { width:100%; border-radius:10px; }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--cor-fundo-escuro), #0a0a0a);
+            color: white;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--cor-bordas-escuro);
+        }
 
-/* Garantia */
-.garantia { text-align:center; margin-bottom:50px; }
-.garantia img { width:150px; margin-bottom:10px; }
+        .hero h2 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            color: var(--cor-primaria-escuro);
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+        }
 
-/* Depoimentos */
-.depoimentos { margin-bottom:50px; }
-.depoimentos h2 { text-align:center; color:#4CAF50; margin-bottom:20px; }
-.depoimento {
-  background:#f0f0ff; padding:20px; border-radius:8px; margin-bottom:15px;
-  border-left:5px solid #4CAF50;
-}
+        .hero p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #ccc;
+        }
 
-/* FAQ */
-.faq { margin-bottom:50px; }
-.faq h3 { margin-bottom:10px; color:#4CAF50; }
-.faq p { margin-bottom:15px; }
+        .btn-oferta {
+            background-color: var(--cor-secundaria-escuro);
+            color: white;
+            padding: 18px 35px;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.6);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
 
-/* Footer */
-footer { text-align:center; padding:20px; font-size:0.9em; color:#777; background:#f0f0f0; }
+        .btn-oferta:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(40, 167, 69, 0.8);
+        }
 
-/* Responsivo */
-@media(max-width:768px){
-  .beneficio, .antes, .depois { flex:0 0 100%; }
-  .botao-comprar { width:100%; text-align:center; }
-}
-</style>
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--cor-bordas-escuro);
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 2.2em;
+            color: var(--cor-primaria-escuro);
+            margin-bottom: 30px;
+            text-shadow: 0 0 7px rgba(0, 255, 0, 0.5);
+        }
+
+        .celular-secao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .celular-conteudo {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .celular-imagem {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            background-color: #000;
+            border-radius: 40px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.4), 0 0 15px rgba(0,0,0,0.8) inset;
+            border: 8px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .celular-imagem::before {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            width: 100px;
+            height: 8px;
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .celular-fotos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            width: calc(100% - 20px);
+            height: calc(100% - 60px);
+            margin-top: -30px;
+        }
+
+        .celular-fotos-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card.depoimento {
+            background-color: var(--cor-card-fundo-escuro);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+            border: 1px solid var(--cor-bordas-escuro);
+        }
+        
+        .depoimento-texto blockquote {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #c0c0c0;
+        }
+
+        .depoimento-cliente {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid var(--cor-bordas-escuro);
+        }
+
+        .depoimento-cliente img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid var(--cor-primaria-escuro);
+        }
+
+        .depoimento-cliente cite {
+            display: block;
+            font-weight: bold;
+            color: var(--cor-primaria-escuro);
+            font-style: normal;
+        }
+
+        .seguranca {
+            background-color: var(--cor-card-fundo-escuro);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 5px solid var(--cor-primaria-escuro);
+        }
+        .seguranca h3 {
+             margin-bottom: 20px;
+        }
+        .seguranca p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            color: #b0b0b0;
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--cor-bordas-escuro);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .hero h2 {
+                font-size: 2em;
+            }
+            .btn-oferta {
+                font-size: 1.2em;
+                padding: 15px 25px;
+            }
+            .celular-imagem {
+                width: 250px;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .celular-imagem {
+                width: 200px;
+                height: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Recupere todas as fotos apagadas do seu celular!</h1>
-  <p>Método exclusivo que garante resultados mesmo quando outros métodos falharam</p>
-  <a href="https://pay.urusoficial.com.br/ZB46QGDGF6X4U" class="botao-comprar">Quero recuperar agora</a>
-</header>
+    <header>
+        <h1>Recupere Fotos Perdidas</h1>
+        <p>A Solução Definitiva para Suas Memórias Digitais</p>
+    </header>
 
-<main>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Não Deixe Suas Memórias Virarem História!</h2>
+                <p>Acidentes acontecem: HDs falham, cartões formatam, arquivos somem. Mas com a *[Nome da Sua Empresa]*, suas fotos, vídeos e documentos mais preciosos têm uma segunda chance. Somos especialistas em trazer de volta o que parecia perdido, com taxas de sucesso que superam as expectativas.</p>
+                <a href="#oferta-especial" class="btn-oferta">
+                    Clique Aqui e Resgate Suas Fotos com Oferta Especial!
+                </a>
+            </div>
+        </section>
+        
+        <section id="celular-recuperadas" class="celular-secao">
+            <div class="container">
+                <h3>Vidas Transformadas, Memórias Restauradas</h3>
+                <p class="celular-conteudo" style="font-size: 1.1em; color: #b0b0b0; margin-bottom: 30px;">Veja como ajudamos a reanimar as histórias de nossos clientes. Cada imagem recuperada é um sorriso de volta!</p>
 
-<div class="historia">
-  <h2>Já perdeu fotos importantes?</h2>
-  <p>Perder fotos de momentos especiais pode ser frustrante e até doloroso. Muitas vezes, você já tentou métodos comuns e nada funcionou.</p>
-  <p>Com o <strong>Recupera Fotos</strong>, você terá acesso a uma técnica exclusiva, usada por profissionais em investigações avançadas, que consegue recuperar fotos e vídeos apagados, mesmo aqueles que pareciam perdidos para sempre.</p>
-</div>
+                <div class="celular-imagem">
+                    <div class="celular-fotos-grid">
+                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+1" alt="Foto Recuperada 1">
+                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+2" alt="Foto Recuperada 2">
+                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+3" alt="Foto Recuperada 3">
+                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+4" alt="Foto Recuperada 4">
+                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+5" alt="Foto Recuperada 5">
+                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+6" alt="Foto Recuperada 6">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="produto">
-  <img src="https://via.placeholder.com/800x400?text=Recupere+sua+galeria" alt="Recupera Fotos">
-  <h2>Método Exclusivo e Seguro</h2>
-  <p>Aprenda passo a passo como recuperar arquivos apagados de qualquer celular ou Google Fotos de maneira rápida e segura.</p>
-  <div class="preco">R$ 47,00</div>
-  <a href="https://pay.urusoficial.com.br/ZB46QGDGF6X4U" class="botao-comprar">Quero recuperar agora</a>
-</div>
+        <section id="depoimentos">
+            <div class="container">
+                <h3>O que Nossos Clientes Dizem</h3>
+                <div class="cards-grid">
+                    <!-- depoimentos aqui -->
+                </div>
+            </div>
+        </section>
 
-<div class="antes-depois">
-  <div class="antes">
-    <img src="https://via.placeholder.com/400x300?text=Antes+triste" alt="Antes">
-    <p>Antes: Perdendo fotos importantes e sem saber como recuperar</p>
-  </div>
-  <div class="depois">
-    <img src="https://via.placeholder.com/400x300?text=Depois+feliz" alt="Depois">
-    <p>Depois: Recuperou suas fotos e momentos especiais com facilidade</p>
-  </div>
-</div>
+        <section id="seguranca-sigilo" class="seguranca">
+            <div class="container">
+                <h3>Sua Confiança é Nossa Prioridade: Segurança e Sigilo Total</h3>
+                <p>Entendemos o valor sentimental e a privacidade dos seus arquivos. Na [Nome da Sua Empresa], cada processo de recuperação é realizado com a mais alta ética profissional, utilizando tecnologias de ponta que garantem a *integridade e a confidencialidade* dos seus dados do início ao fim. Seus arquivos estão seguros conosco. *Zero riscos, total discrição.*</p>
+            </div>
+        </section>
+        
+        <section id="oferta-especial" style="text-align: center; padding: 50px 0; background-color: var(--cor-card-fundo-escuro);">
+            <div class="container">
+                <h3>Aja Agora! Esta Oferta é Por Tempo Limitado!</h3>
+                <p style="font-size: 1.2em; margin-bottom: 30px; color: #ccc;">Não perca a chance de reaver suas lembranças mais queridas. Garanta condições especiais ao entrar em contato hoje mesmo!</p>
+                <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" class="btn-oferta" target="_blank">
+                    QUERO MINHA OFERTA E MINHAS FOTOS DE VOLTA!
+                </a>
+            </div>
+        </section>
+    </main>
 
-<div class="garantia">
-  <img src="https://via.placeholder.com/150x150?text=Selo+7+dias" alt="Garantia 7 dias">
-  <p>Garantia de 7 dias: se não funcionar, você recebe seu dinheiro de volta!</p>
-</div>
-
-<div class="beneficios">
-  <div class="beneficio">
-    <strong>Recuperação rápida</strong>
-    <p>Recupere fotos e vídeos em minutos sem complicações.</p>
-  </div>
-  <div class="beneficio">
-    <strong>Compatível com qualquer dispositivo</strong>
-    <p>Funciona em Android, iOS e Google Fotos.</p>
-  </div>
-  <div class="beneficio">
-    <strong>Passo a passo detalhado</strong>
-    <p>Guia completo e fácil de seguir, garantindo resultados rápidos.</p>
-  </div>
-  <div class="beneficio">
-    <strong>Seguro e confiável</strong>
-    <p>Suas informações são protegidas e você recupera arquivos com segurança.</p>
-  </div>
-</div>
-
-<div class="depoimentos">
-  <h2>O que nossos clientes dizem</h2>
-  <div class="depoimento"><strong>João Silva</strong><p>“Incrível! Pensei que minhas fotos antigas tinham sumido para sempre, mas consegui recuperar todas!”</p></div>
-  <div class="depoimento"><strong>Maria Oliveira</strong><p>“Funcionou exatamente como prometido. Agora minhas lembranças estão de volta!”</p></div>
-  <div class="depoimento"><strong>Carlos Santos</strong><p>“Recomendo para todo mundo que perdeu fotos importantes. Super fácil de usar!”</p></div>
-</div>
-
-<div class="faq">
-<h2>Perguntas Frequentes</h2>
-<h3>Funciona em qualquer celular?</h3><p>Sim! Compatível com Android e iOS, além do Google Fotos.</p>
-<h3>Preciso instalar algum aplicativo?</h3><p>Não, você receberá um método passo a passo, sem softwares complicados.</p>
-<h3>Em quanto tempo vejo resultados?</h3><p>Na maioria dos casos, em poucos minutos após seguir o guia.</p>
-</div>
-
-</main>
-
-<footer>
-&copy; 2025 Recupera Fotos. Todos os direitos reservados.
-</footer>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 [Nome da Sua Empresa]. Todos os direitos reservados. | Contato: (XX) XXXX-XXXX | E-mail: contato@[suaempresa].com</p>
+        </div>
+    </footer>
 
 </body>
 </html>
-
