@@ -11,8 +11,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 0; 
-            background-color: #34495e; /* AZUL MÉDIO/ESCURO - Cor predominante, levemente mais clara que a logo para destaque */
-            color: #333; 
+            background-color: #34495e; /* AZUL MÉDIO/ESCURO */
+            color: #444; /* Corrigido para cinza escuro para melhor legibilidade */
             line-height: 1.6; 
         }
         .container { 
@@ -22,24 +22,23 @@
             overflow: hidden; 
             padding: 20px 0; 
         }
-        h2, h3 { color: #e74c3c; text-align: center; }
+        h1, h2, h3 { color: #e74c3c; text-align: center; } /* Adicionado H1 */
 
         /* CABEÇALHO E LOGO */
         header { 
-            /* CORREÇÃO AQUI: Fundo do cabeçalho agora é branco para dar destaque à logo */
             background-color: white; 
             padding: 1em 0; 
             text-align: center; 
-            border-bottom: 5px solid #2c3e50; /* Linha sutil para separar do body */
+            border-bottom: 5px solid #2c3e50;
         }
         #logo { 
             width: 100%; 
             max-width: 250px; 
             height: auto; 
-            margin-bottom: 0; /* Removido o espaço extra */
+            margin-bottom: 0;
         } 
 
-        /* SEÇÃO HERO E PREÇO (Fundo Branco - OK) */
+        /* SEÇÃO HERO E PREÇO */
         #hero, #solucao, #garantia-box { 
             background: white; 
             padding: 40px; 
@@ -48,7 +47,8 @@
             text-align: center; 
             margin-bottom: 30px;
         }
-        #hero h2 { font-size: 2.2em; line-height: 1.2; }
+        #hero h1 { font-size: 2.5em; line-height: 1.2; } /* Título Principal (H1) */
+        
         .price-box {
             background-color: #f1c40f; 
             color: #2c3e50;
@@ -59,6 +59,14 @@
             font-size: 1.8em;
             font-weight: bold;
             border: 3px solid #f39c12;
+            text-align: center;
+        }
+        .old-price {
+            display: block;
+            font-size: 0.6em; 
+            color: #c0392b; 
+            text-decoration: line-through; /* Preço Riscado */
+            margin-bottom: 5px;
         }
         
         /* BOTÃO CTA (Mantido Verde) */
@@ -75,18 +83,36 @@
             transition: background-color 0.3s, transform 0.3s;
             box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
-        .cta-button:hover { background-color: #2ecc71; transform: translateY(-2px); }
+        .cta-button:hover { 
+            background-color: #2ecc71; 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.6); /* Efeito de "Pular" melhorado */
+        }
 
         /* AUTORIDADE POLICIAL */
-        #autoridade { background-color: #ecf0f1; padding: 40px; border-radius: 8px; text-align: center; margin-bottom: 30px; }
+        #autoridade { 
+            background-color: #ecf0f1; 
+            padding: 40px; 
+            border-radius: 8px; 
+            text-align: center; 
+            margin-bottom: 30px; 
+            border-left: 5px solid #3498db; /* Destaque lateral de autoridade */
+        }
         #autoridade h3 { color: #2c3e50; margin-bottom: 15px; }
 
-        /* DEPOIMENTOS (Fundo Branco) */
+        /* DEPOIMENTOS */
         #depoimentos { padding: 40px 0; }
         .depoimentos-titulo { color: white; margin-bottom: 30px; font-size: 2em; }
         .fb-comment { background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .fb-header { display: flex; align-items: center; margin-bottom: 5px; }
-        .fb-avatar { width: 40px; height: 40px; border-radius: 50%; background-color: #bdc3c7; margin-right: 10px; }
+        .fb-avatar { 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            background-color: #95a5a6; /* Cor cinza sólido para simular um avatar */
+            margin-right: 10px; 
+            /* Para adicionar um ícone de perfil se quiser: content: '👤'; font-size: 24px; text-align: center; line-height: 40px; */
+        } 
         .fb-name { font-weight: bold; color: #385898; font-size: 1.1em; }
         .fb-text { margin-top: 5px; }
         .fb-like { font-size: 0.8em; color: #606770; margin-top: 5px; display: block; }
@@ -104,26 +130,35 @@
         }
 
         /* RODAPÉ */
-        footer { background-color: #2c3e50; color: #bdc3c7; text-align: center; padding: 1.5em 0; margin-top: 50px; font-size: 0.8em; }
+        footer { 
+            background-color: #2c3e50; 
+            color: #bdc3c7; 
+            text-align: center; 
+            padding: 1.5em 0; 
+            margin-top: 80px; /* Mais espaço antes do rodapé */
+            font-size: 0.8em; 
+        }
+        footer a { color: #bdc3c7; text-decoration: none; margin: 0 5px; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header>
-        <img id="logo" src="imagens/logo-recupera-fotos.webp" alt="Logo Recupera Fotos - Resgate de Mídias Apagadas">
+        <img id="logo" src="logo-recupera-fotos.webp" alt="Logo Recupera Fotos - Resgate de Mídias Apagadas">
     </header>
 
     <div class="container">
         
         <section id="hero">
-            <h2>A Frustração de Perder Aquele Momento Único para Sempre... E a Sensação de que Não Há Mais Nada a Fazer.</h2>
+            <h1>A Frustração de Perder Aquele Momento Único para Sempre... E a Sensação de que Não Há Mais Nada a Fazer.</h1>
             
             <p style="font-size: 1.1em;">Aquele batizado. A viagem inesquecível. O primeiro passo do seu filho. Quando a foto some do celular, é como se a memória fosse junto. *Você sente um vazio sabendo que o momento se foi para sempre.*</p>
             
             <p style="font-size: 1.5em; color: #e74c3c; font-weight: bold; margin-top: 30px;">🚨 PARE TUDO! Seus momentos ainda podem ser resgatados.</p>
 
             <div class="price-box">
-                APENAS R$ 47,00 (Acesso Imediato)
+                <span class="old-price">De R$ 197,00</span> APENAS R$ 47,00 (Acesso Imediato)
             </div>
             
             <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
@@ -158,33 +193,34 @@
         
         <section id="depoimentos">
             <h3 class="depoimentos-titulo">Veja Quem Já Resgatou Suas Memórias</h3>
-            
-            <div class="fb-comment">
-                <div class="fb-header">
-                    <div class="fb-avatar"></div>
-                    <span class="fb-name">Carla S.</span>
+            <ul> 
+                <div class="fb-comment">
+                    <div class="fb-header">
+                        <div class="fb-avatar"></div>
+                        <span class="fb-name">Carla S.</span>
+                    </div>
+                    <p class="fb-text">"Pensei que tinha perdido as fotos da formatura para sempre. Tentei todos os apps! Em 8 minutos com esse método, todas as fotos voltaram. Meu Deus, inacreditável!"</p>
+                    <span class="fb-like">Curtir · Responder · 32 curtidas · 5 min</span>
                 </div>
-                <p class="fb-text">"Pensei que tinha perdido as fotos da formatura para sempre. Tentei todos os apps! Em 8 minutos com esse método, todas as fotos voltaram. Meu Deus, inacreditável!"</p>
-                <span class="fb-like">Curtir · Responder · 32 curtidas · 5 min</span>
-            </div>
-            
-            <div class="fb-comment">
-                <div class="fb-header">
-                    <div class="fb-avatar"></div>
-                    <span class="fb-name">Pedro H.</span>
+                
+                <div class="fb-comment">
+                    <div class="fb-header">
+                        <div class="fb-avatar"></div>
+                        <span class="fb-name">Pedro H.</span>
+                    </div>
+                    <p class="fb-text">"Achei que o valor era baixo demais para funcionar, mas o risco era só 47 reais. O resultado? Recuperei as fotos de 2 anos atrás! Vocês são gênios, obrigado!"</p>
+                    <span class="fb-like">Curtir · Responder · 58 curtidas · 12 min</span>
                 </div>
-                <p class="fb-text">"Achei que o valor era baixo demais para funcionar, mas o risco era só 47 reais. O resultado? Recuperei as fotos de 2 anos atrás! Vocês são gênios, obrigado!"</p>
-                <span class="fb-like">Curtir · Responder · 58 curtidas · 12 min</span>
-            </div>
-            
-            <div class="fb-comment">
-                <div class="fb-header">
-                    <div class="fb-avatar"></div>
-                    <span class="fb-name">Maria L.</span>
+                
+                <div class="fb-comment">
+                    <div class="fb-header">
+                        <div class="fb-avatar"></div>
+                        <span class="fb-name">Maria L.</span>
+                    </div>
+                    <p class="fb-text">"O suporte é muito atencioso. A instrução é simples e funcionou perfeitamente no meu iPhone. Resgatei fotos do nascimento do meu neto. Não tem preço!"</p>
+                    <span class="fb-like">Curtir · Responder · 10 curtidas · 20 min</span>
                 </div>
-                <p class="fb-text">"O suporte é muito atencioso. A instrução é simples e funcionou perfeitamente no meu iPhone. Resgatei fotos do nascimento do meu neto. Não tem preço!"</p>
-                <span class="fb-like">Curtir · Responder · 10 curtidas · 20 min</span>
-            </div>
+            </ul>
         </section>
         
         <section id="garantia-box">
@@ -196,7 +232,7 @@
 
         <section id="cta-final" style="text-align: center; padding: 40px 0; color: white;">
              <h2>Não Deixe Suas Memórias no Lixo Digital.</h2>
-             <p style="font-size: 1.2em;">Acesse o método *Recupera Fotos* por apenas *R$ 47,00* antes que essa oportunidade termine.</p>
+             <h3 style="color: #f1c40f;">Últimas Vagas com Preço Promocional!</h3> <p style="font-size: 1.2em;">Acesse o método *Recupera Fotos* por apenas *R$ 47,00* antes que essa oportunidade termine.</p>
              <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
                 QUERO RECUPERAR MINHAS FOTOS AGORA
             </a>
@@ -207,6 +243,10 @@
 
     <footer>
         <p>&copy; 2025 Recupera Fotos. Todos os direitos reservados.</p>
+        <p>
+            <a href="#">Política de Privacidade</a> | 
+            <a href="#">Termos de Uso</a>
+        </p>
         <p style="font-size: 0.8em; margin-top: 5px;">Aviso Legal: Os resultados podem variar. O método é baseado em técnicas de recuperação avançadas.</p>
     </footer>
 
