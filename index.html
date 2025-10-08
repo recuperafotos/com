@@ -3,106 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recupere Suas Memórias com Facilidade - Recupera Fotos</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <link rel="icon" href="https://via.placeholder.com/32/004d99/FFFFFF?text=RF" type="image/png"> 
+    <title>Recupera Fotos - O Método Policial Secreto para Resgatar Suas Memórias!</title>
+    
+    <style>
+        /* ESTILOS CSS GERAIS */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #2c3e50; /* AZUL ESCURO - Cor predominante */
+            color: #333; 
+            line-height: 1.6; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 1000px; 
+            margin: auto; 
+            overflow: hidden; 
+            padding: 20px 0; 
+        }
+        h2, h3 { color: #e74c3c; text-align: center; }
+
+        /* CABEÇALHO E LOGO */
+        header { background-color: #2c3e50; padding: 1em 0; text-align: center; }
+        #logo { width: 100%; max-width: 250px; height: auto; margin-bottom: 10px; } 
+
+        /* SEÇÃO HERO E PREÇO */
+        #hero, #solucao, #garantia { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+            text-align: center; 
+            margin-bottom: 30px;
+        }
+        #hero h2 { font-size: 2.2em; line-height: 1.2; }
+        .price-box {
+            background-color: #f1c40f; /* Amarelo de destaque */
+            color: #2c3e50;
+            padding: 15px 25px;
+            border-radius: 5px;
+            margin: 25px auto;
+            display: inline-block;
+            font-size: 1.8em;
+            font-weight: bold;
+            border: 3px solid #f39c12;
+        }
+        
+        /* BOTÃO CTA */
+        .cta-button {
+            display: inline-block;
+            background-color: #27ae60; /* Verde Chamativo */
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px; 
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+        }
+        .cta-button:hover { background-color: #2ecc71; transform: translateY(-2px); }
+
+        /* AUTORIDADE POLICIAL */
+        #autoridade { background-color: #ecf0f1; padding: 40px; border-radius: 8px; text-align: center; margin-bottom: 30px; }
+        #autoridade h3 { color: #2c3e50; margin-bottom: 15px; }
+
+        /* DEPOIMENTOS (ESTILO FACEBOOK) */
+        #depoimentos { padding: 40px 0; }
+        .depoimentos-titulo { color: white; margin-bottom: 30px; font-size: 2em; }
+        .fb-comment { background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .fb-header { display: flex; align-items: center; margin-bottom: 5px; }
+        .fb-avatar { width: 40px; height: 40px; border-radius: 50%; background-color: #bdc3c7; margin-right: 10px; }
+        .fb-name { font-weight: bold; color: #385898; font-size: 1.1em; }
+        .fb-text { margin-top: 5px; }
+        .fb-like { font-size: 0.8em; color: #606770; margin-top: 5px; display: block; }
+        
+        /* GARANTIA */
+        #garantia-box { text-align: center; background-color: #f39c12; color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; }
+        #garantia-box img { width: 100px; margin-bottom: 15px; }
+        #garantia-box h3 { color: white; margin: 0 0 10px 0; }
+        .seal-icon { 
+            /* Estilo simples de selo sem imagem externa */
+            font-size: 50px; 
+            color: #2c3e50; 
+            background: white; 
+            border-radius: 50%; 
+            padding: 10px;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        /* RODAPÉ */
+        footer { background-color: #2c3e50; color: #bdc3c7; text-align: center; padding: 1.5em 0; margin-top: 50px; font-size: 0.8em; }
+    </style>
 </head>
 <body>
 
-    <header class="top-bar">
-        <div class="container">
-            <p>🚨 ATENÇÃO: Cada segundo conta! Quanto mais você espera, mais difícil fica a recuperação. <span class="blink">AGIR AGORA!</span></p>
-        </div>
+    <header>
+        <img id="logo" src="imagens/logo-recupera-fotos.webp" alt="Logo Recupera Fotos - Resgate de Mídias Apagadas">
     </header>
 
-    <nav class="main-nav">
-        <div class="container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/180x50/1e3a8a/FFFFFF?text=RECUPERA+FOTOS" alt="Logo Recupera Fotos">
+    <div class="container">
+        
+        <section id="hero">
+            <h2>A Frustração de Perder Aquele Momento Único para Sempre... E a Sensação de que Não Há Mais Nada a Fazer.</h2>
+            
+            <p style="font-size: 1.1em;">Aquele batizado. A viagem inesquecível. O primeiro passo do seu filho. Quando a foto some do celular, é como se a memória fosse junto. *Você sente um vazio sabendo que o momento se foi para sempre.*</p>
+            
+            <p style="font-size: 1.5em; color: #e74c3c; font-weight: bold; margin-top: 30px;">🚨 PARE TUDO! Seus momentos ainda podem ser resgatados.</p>
+
+            <div class="price-box">
+                APENAS R$ 47,00 (Acesso Imediato)
             </div>
-            <a href="#buy" class="nav-cta">Acessar Recupera Fotos!</a>
-        </div>
-    </nav>
+            
+            <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
+                QUERO RECUPERAR MINHAS FOTOS AGORA
+            </a>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Acidentalmente Apagou Suas Fotos? <br>Respire Fundo! Suas Memórias Podem Ser Salvas em Minutos.</h1>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #555;">Pagamento Único. Sem mensalidades ou taxas escondidas.</p>
+        </section>
+
+        <section id="dor-aprofundada" style="text-align: center; padding: 30px 0; color: white;">
+            <h3 style="color: #f1c40f;">Pare de Perder Tempo Tentando!</h3>
+            <p style="font-size: 1.1em;">Você já tentou baixar aplicativos esquisitos? Já procurou tutoriais complexos no YouTube? Eles *NÃO funcionam* porque não conseguem acessar o nível mais profundo do sistema de dados do seu celular. *Você estava fadado a falhar!*</p>
+            <hr style="border-top: 1px dashed #f1c40f; width: 50%;">
+        </section>
+
+        <section id="solucao">
+            <h2>A Chave Estava Oculta, Usada Apenas por Profissionais de Elite.</h2>
+            <p style="font-size: 1.2em;">O método *"Recupera Fotos"* foi desenvolvido com base nos mesmos protocolos de *Inteligência de Investigação Policial* utilizados para rastrear e extrair dados de celulares em casos criminais.</p>
             
-            <p class="subheadline">Descubra o *Recupera Fotos* e traga de volta aquelas fotos insubstituíveis de viagens, família e momentos que você pensou que tinha perdido para sempre!</p>
-            
-            <img src="https://via.placeholder.com/800x450/cccccc/ffffff?text=IMAGEM+PRINCIPAL+OU+VIDEO+AQUI" alt="Pessoa recuperando fotos no celular" class="hero-image">
-            
-            <a href="#buy" class="cta-button primary-cta pulse-animation">SIM! QUERO MINHAS FOTOS DE VOLTA AGORA!</a>
-            
-            <div class="guarantee-badge">
-                <img src="https://via.placeholder.com/120x120/10b981/FFFFFF?text=7+DIAS+GARANTIA" alt="Selo de Garantia de 7 Dias" class="guarantee-seal">
-                <p>🔒 *Garantia Total de 7 Dias!* Se o *Recupera Fotos* não funcionar para você, devolvemos 100% do seu dinheiro, sem perguntas.</p>
+            <div id="autoridade">
+                <h3>O que isso significa?</h3>
+                <p>Significa que este método *não é um app* e *não é um tutorial comum. Ele explora uma falha na forma como o Android e o iOS gerenciam o lixo de dados, permitindo que você resgate fotos **meses ou anos* após o apagamento.</p>
+                <p style="font-weight: bold; color: #e74c3c;">Você terá em suas mãos o nível máximo de tecnologia de recuperação.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="story-pain">
-        <div class="container">
-            <h2>Você já sentiu esse desespero?</h2>
-            <p>Aquele *frio na barriga* quando você percebe que as fotos do seu último Natal, da formatura do seu filho ou daquela viagem inesquecível *simplesmente sumiram*? Ou pior, aquele momento em que você limpou o celular e apagou sem querer o que não devia?</p>
-            <p>Milhares de pessoas passam por isso todos os dias, e a maioria pensa que é o fim. Que aquelas memórias estão perdidas para sempre. *Mas e se houvesse uma forma fácil e rápida de trazer tudo de volta?*</p>
-            <div class="pain-points">
-                <img src="https://via.placeholder.com/300x200/fecaca/dc2626?text=FOTO+SIMULANDO+PERDA" alt="Foto de celular com tela de erro" class="pain-image">
-                <img src="https://via.placeholder.com/300x200/fecaca/dc2626?text=FOTO+SIMULANDO+DESESPERO" alt="Pessoa frustrada com celular" class="pain-image">
-            </div>
-        </div>
-    </section>
-
-    <section class="solution">
-        <div class="container">
-            <h2>Apresento o Recupera Fotos: Suas Fotos de Volta em 3 Passos Simples!</h2>
-            <p class="subheadline">Desenvolvido para ser *intuitivo e eficaz, o **Recupera Fotos* permite que *qualquer pessoa* recupere fotos apagadas do celular, sem precisar de técnicos ou programas caros.</p>
             
-            <div class="steps-visual">
-                <div class="step-item">
-                    <img src="https://via.placeholder.com/100x100/0ea5e9/FFFFFF?text=1" alt="Passo 1" class="step-icon">
-                    <h3>1. Acesse o Método</h3>
-                    <p>Entre na nossa área de membros exclusiva e veja as instruções.</p>
+             <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
+                QUERO RECUPERAR MINHAS FOTOS AGORA
+            </a>
+            
+            <p style="margin-top: 15px; font-size: 0.9em;">Compatível com 99% dos celulares Android e iPhone. Faça tudo pelo celular.</p>
+        </section>
+        
+        <section id="depoimentos">
+            <h3 class="depoimentos-titulo">Veja Quem Já Resgatou Suas Memórias</h3>
+            
+            <div class="fb-comment">
+                <div class="fb-header">
+                    <div class="fb-avatar"></div>
+                    <span class="fb-name">Carla S.</span>
                 </div>
-                <div class="step-item">
-                    <img src="https://via.placeholder.com/100x100/0ea5e9/FFFFFF?text=2" alt="Passo 2" class="step-icon">
-                    <h3>2. Siga o Passo a Passo</h3>
-                    <p>Com tutoriais simples, você é guiado para recuperar suas fotos.</p>
-                </div>
-                <div class="step-item">
-                    <img src="https://via.placeholder.com/100x100/0ea5e9/FFFFFF?text=3" alt="Passo 3" class="step-icon">
-                    <h3>3. Recupere Suas Memórias!</h3>
-                    <p>Pronto! Suas fotos de volta onde elas nunca deveriam ter saído.</p>
-                </div>
+                <p class="fb-text">"Pensei que tinha perdido as fotos da formatura para sempre. Tentei todos os apps! Em 8 minutos com esse método, todas as fotos voltaram. Meu Deus, inacreditável!"</p>
+                <span class="fb-like">Curtir · Responder · 32 curtidas · 5 min</span>
             </div>
-
-            <a href="#buy" class="cta-button secondary-cta">EU QUERO MINHAS MEMÓRIAS DE VOLTA!</a>
-        </div>
-    </section>
-
-    <section class="testimonials-facebook">
-        <div class="container">
-            <h2>Veja Quem Já Recuperou Suas Fotos com o Recupera Fotos:</h2>
-            <div class="testimonial-grid">
-                <div class="fb-comment">
-                    <img src="https://via.placeholder.com/50/f97316/FFFFFF?text=AR" alt="Avatar Ana Rocha" class="fb-avatar">
-                    <div class="fb-content">
-                        <p class="fb-name">Ana Rocha <span class="fb-time">há 3 horas</span></p>
-                        <p class="fb-text">"Pensei que tinha perdido as fotos do meu casamento para sempre! O *Recupera Fotos* foi um milagre, achei tudo em 15 minutos! Muito obrigada!"</p>
-                        <div class="fb-actions">
-                            <span>👍 Curtir</span> <span>💬 Responder</span>
-                        </div>
-                    </div>
+            
+            <div class="fb-comment">
+                <div class="fb-header">
+                    <div class="fb-avatar"></div>
+                    <span class="fb-name">Pedro H.</span>
                 </div>
-                <div class="fb-comment">
-                    <img src="https://via.placeholder.com/50/1e3a8a/FFFFFF?text=JM" alt="Avatar João Mendes" class="fb-avatar">
-                    <div class="fb-content">
-                        <p class="fb-name">João Mendes <span class="fb-time">há 1 dia</span></p>
-                        <p class="fb-text">"Já tinha desistido! Meu filho apagou minhas fotos da viagem de formatura. Com esse método, recuperei todas. FÁCIL e RÁPIDO. Recomendo demais o *Recupera Fotos*!"</p>
-                        <div class="fb-actions">
-                            <span>👍 Curtir</span> <span>💬 Responder</span>
-                        </div>
-                    </div>
+                <p class="fb-text">"Achei que o valor era baixo demais para funcionar, mas o risco era só 47 reais. O resultado? Recuperei as fotos de 2 anos atrás! Vocês são gênios, obrigado!"</p>
+                <span class="fb-like">Curtir · Responder · 58 curtidas · 12 min</span>
+            </div>
+            
+            <div class="fb-comment">
+                <div class="fb-header">
+                    <div class="fb-avatar"></div>
+                    <span class="fb-name">Maria L.</span>
                 </div>
-                <div class="fb-comment">
-                    <img src="
+                <p class="fb-text">"O suporte é muito atencioso. A instrução é simples e funcionou perfeitamente no meu iPhone. Resgatei fotos do nascimento do meu neto. Não tem preço!"</p>
+                <span class="fb-like">Curtir · Responder · 10 curtidas · 20 min</span>
+            </div>
+        </section>
+        
+        <section id="garantia-box">
+            <span class="seal-icon">🔒</span>
+            <h3>Seu Risco É ZERO!</h3>
+            <p style="font-size: 1.1em; font-weight: bold;">Garantia Incondicional de 7 Dias!</p>
+            <p>Se você não conseguir recuperar nenhuma foto ou não gostar do método, basta nos enviar um e-mail. Devolveremos *100% do seu dinheiro*, sem perguntas.</p>
+        </section>
+
+        <section id="cta-final" style="text-align: center; padding: 40px 0; color: white;">
+             <h2>Não Deixe Suas Memórias no Lixo Digital.</h2>
+             <p style="font-size: 1.2em;">Acesse o método *Recupera Fotos* por apenas *R$ 47,00* antes que essa oportunidade termine.</p>
+             <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
+                QUERO RECUPERAR MINHAS FOTOS AGORA
+            </a>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #bdc3c7;">Seus dados de compra são 100% seguros.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Recupera Fotos. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8em; margin-top: 5px;">Aviso Legal: Os resultados podem variar. O método é baseado em técnicas de recuperação avançadas.</p>
+    </footer>
+
+</body>
+</html>
