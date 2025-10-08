@@ -1,335 +1,516 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recupere Fotos Perdidas - [Nome da Sua Empresa]</title>
-    <style>
-        /* ESTILOS CSS */
-        :root {
-            /* Cores de Destaque para o Tema Escuro */
-            --cor-primaria-escuro: #00ff00; /* Verde néon para títulos */
-            --cor-secundaria-escuro: #28a745; /* Verde de sucesso/chamativo para botões */
-            --cor-fundo-escuro: #1a1a1a; /* Fundo bem escuro */
-            --cor-texto-claro: #f0f0f0; /* Texto claro */
-            --cor-card-fundo-escuro: #2a2a2a; /* Fundo dos cards mais escuro */
-            --cor-bordas-escuro: #3a3a3a; /* Bordas e divisores */
-        }
+/* Importação de fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+/* RESET e Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa; /* Fundo claro e profissional */
+    color: #333;
+    line-height: 1.6;
+}
 
-        body {
-            background-color: var(--cor-fundo-escuro);
-            color: var(--cor-texto-claro);
-            line-height: 1.6;
-        }
+.container {
+    max-width: 1100px; /* Largura um pouco maior para conteúdo */
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        header {
-            background-color: var(--cor-fundo-escuro);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 1px solid var(--cor-bordas-escuro);
-        }
+/* Animação de Piscar para Urgência */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
 
-        header h1 {
-            font-size: 3em;
-            color: var(--cor-primaria-escuro);
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
-            margin-bottom: 5px;
-        }
+.blink {
+    animation: blink 1s infinite;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px 0;
-        }
+/* TOP BAR - Urgência */
+.top-bar {
+    background-color: #cc0000; /* Vermelho de alerta */
+    color: white;
+    padding: 10px 0;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.1em;
+}
 
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--cor-fundo-escuro), #0a0a0a);
-            color: white;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--cor-bordas-escuro);
-        }
+/* NAV BAR - Logo e CTA */
+.main-nav {
+    background-color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
 
-        .hero h2 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            color: var(--cor-primaria-escuro);
-            text-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
-        }
+.main-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .hero p {
-            font-size: 1.1em;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            color: #ccc;
-        }
+.logo img {
+    max-height: 50px; /* Tamanho da logo */
+    width: auto;
+}
 
-        .btn-oferta {
-            background-color: var(--cor-secundaria-escuro);
-            color: white;
-            padding: 18px 35px;
-            font-size: 1.4em;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 0 15px rgba(40, 167, 69, 0.6);
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
+.nav-cta {
+    background-color: #00aaff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
 
-        .btn-oferta:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(40, 167, 69, 0.8);
-        }
+.nav-cta:hover {
+    background-color: #0088cc;
+}
 
-        section {
-            padding: 40px 0;
-            border-bottom: 1px solid var(--cor-bordas-escuro);
-        }
+/* HERO SECTION - Destaque Principal */
+.hero {
+    background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Para garantir que o gradiente não vaze */
+}
 
-        h3 {
-            text-align: center;
-            font-size: 2.2em;
-            color: var(--cor-primaria-escuro);
-            margin-bottom: 30px;
-            text-shadow: 0 0 7px rgba(0, 255, 0, 0.5);
-        }
+.hero h1 {
+    color: #004d99;
+    font-size: 2.8em;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
 
-        .celular-secao {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            padding: 50px 0;
-            text-align: center;
-        }
+.subheadline {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        .celular-conteudo {
-            max-width: 800px;
-            text-align: center;
-        }
+.hero-image {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
 
-        .celular-imagem {
-            position: relative;
-            width: 300px;
-            height: 600px;
-            background-color: #000;
-            border-radius: 40px;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.4), 0 0 15px rgba(0,0,0,0.8) inset;
-            border: 8px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .celular-imagem::before {
-            content: '';
-            position: absolute;
-            bottom: 15px;
-            width: 100px;
-            height: 8px;
-            background-color: #555;
-            border-radius: 5px;
-        }
+/* BOTÃO CTA - Principal */
+.cta-button {
+    display: inline-block;
+    background-color: #ff6600; /* Laranja Impactante */
+    color: white;
+    padding: 20px 50px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 6px 15px rgba(255, 102, 0, 0.5);
+    border: none;
+    cursor: pointer;
+}
 
-        .celular-fotos-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 5px;
-            width: calc(100% - 20px);
-            height: calc(100% - 60px);
-            margin-top: -30px;
-        }
+.cta-button:hover {
+    background-color: #e65c00;
+    transform: translateY(-2px);
+}
 
-        .celular-fotos-grid img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
-        }
+/* Animação Pulsante para o CTA */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+}
 
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
 
-        .card.depoimento {
-            background-color: var(--cor-card-fundo-escuro);
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            width: 100%;
-            max-width: 350px;
-            padding: 20px;
-            border: 1px solid var(--cor-bordas-escuro);
-        }
-        
-        .depoimento-texto blockquote {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: #c0c0c0;
-        }
+/* SELO DE GARANTIA */
+.guarantee-badge {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espaço entre imagem e texto */
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e6ffe6; /* Fundo suave para o selo */
+    border: 1px solid #00a000;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
 
-        .depoimento-cliente {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px solid var(--cor-bordas-escuro);
-        }
+.guarantee-seal {
+    width: 80px; /* Tamanho do selo */
+    height: 80px;
+    flex-shrink: 0; /* Não permite que a imagem encolha */
+}
 
-        .depoimento-cliente img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-            border: 3px solid var(--cor-primaria-escuro);
-        }
+.guarantee-badge p {
+    font-size: 1.1em;
+    color: #008000; /* Verde para confiança */
+    margin: 0;
+    text-align: left;
+}
 
-        .depoimento-cliente cite {
-            display: block;
-            font-weight: bold;
-            color: var(--cor-primaria-escuro);
-            font-style: normal;
-        }
+/* SEÇÃO HISTÓRIA DA DOR */
+.story-pain {
+    background-color: #fff;
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
 
-        .seguranca {
-            background-color: var(--cor-card-fundo-escuro);
-            padding: 50px 0;
-            text-align: center;
-            border-top: 5px solid var(--cor-primaria-escuro);
-        }
-        .seguranca h3 {
-             margin-bottom: 20px;
-        }
-        .seguranca p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1em;
-            color: #b0b0b0;
-        }
+.story-pain h2 {
+    color: #cc0000; /* Cor que remete a urgência/problema */
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
 
-        footer {
-            background-color: #0d0d0d;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            border-top: 1px solid var(--cor-bordas-escuro);
-        }
+.story-pain p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            .hero h2 {
-                font-size: 2em;
-            }
-            .btn-oferta {
-                font-size: 1.2em;
-                padding: 15px 25px;
-            }
-            .celular-imagem {
-                width: 250px;
-                height: 500px;
-            }
-        }
+.pain-points {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Para responsividade */
+}
 
-        @media (max-width: 480px) {
-            .celular-imagem {
-                width: 200px;
-                height: 400px;
-            }
-        }
-    </style>
-</head>
-<body>
+.pain-image {
+    max-width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
-    <header>
-        <h1>Recupere Fotos Perdidas</h1>
-        <p>A Solução Definitiva para Suas Memórias Digitais</p>
-    </header>
+/* SEÇÃO SOLUÇÃO (MÉTODO) */
+.solution {
+    background-color: #f0f8ff; /* Fundo suave para solução */
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h2>Não Deixe Suas Memórias Virarem História!</h2>
-                <p>Acidentes acontecem: HDs falham, cartões formatam, arquivos somem. Mas com a *[Nome da Sua Empresa]*, suas fotos, vídeos e documentos mais preciosos têm uma segunda chance. Somos especialistas em trazer de volta o que parecia perdido, com taxas de sucesso que superam as expectativas.</p>
-                <a href="#oferta-especial" class="btn-oferta">
-                    Clique Aqui e Resgate Suas Fotos com Oferta Especial!
-                </a>
-            </div>
-        </section>
-        
-        <section id="celular-recuperadas" class="celular-secao">
-            <div class="container">
-                <h3>Vidas Transformadas, Memórias Restauradas</h3>
-                <p class="celular-conteudo" style="font-size: 1.1em; color: #b0b0b0; margin-bottom: 30px;">Veja como ajudamos a reanimar as histórias de nossos clientes. Cada imagem recuperada é um sorriso de volta!</p>
+.solution h2 {
+    color: #004d99;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
 
-                <div class="celular-imagem">
-                    <div class="celular-fotos-grid">
-                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+1" alt="Foto Recuperada 1">
-                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+2" alt="Foto Recuperada 2">
-                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+3" alt="Foto Recuperada 3">
-                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+4" alt="Foto Recuperada 4">
-                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+5" alt="Foto Recuperada 5">
-                        <img src="https://via.placeholder.com/140x140/00ff00/000000?text=Foto+6" alt="Foto Recuperada 6">
-                    </div>
-                </div>
-            </div>
-        </section>
+.steps-visual {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
 
-        <section id="depoimentos">
-            <div class="container">
-                <h3>O que Nossos Clientes Dizem</h3>
-                <div class="cards-grid">
-                    <!-- depoimentos aqui -->
-                </div>
-            </div>
-        </section>
+.step-item {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    max-width: 280px;
+    flex: 1;
+    min-width: 250px; /* Garante que não fique muito pequeno */
+}
 
-        <section id="seguranca-sigilo" class="seguranca">
-            <div class="container">
-                <h3>Sua Confiança é Nossa Prioridade: Segurança e Sigilo Total</h3>
-                <p>Entendemos o valor sentimental e a privacidade dos seus arquivos. Na [Nome da Sua Empresa], cada processo de recuperação é realizado com a mais alta ética profissional, utilizando tecnologias de ponta que garantem a *integridade e a confidencialidade* dos seus dados do início ao fim. Seus arquivos estão seguros conosco. *Zero riscos, total discrição.*</p>
-            </div>
-        </section>
-        
-        <section id="oferta-especial" style="text-align: center; padding: 50px 0; background-color: var(--cor-card-fundo-escuro);">
-            <div class="container">
-                <h3>Aja Agora! Esta Oferta é Por Tempo Limitado!</h3>
-                <p style="font-size: 1.2em; margin-bottom: 30px; color: #ccc;">Não perca a chance de reaver suas lembranças mais queridas. Garanta condições especiais ao entrar em contato hoje mesmo!</p>
-                <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" class="btn-oferta" target="_blank">
-                    QUERO MINHA OFERTA E MINHAS FOTOS DE VOLTA!
-                </a>
-            </div>
-        </section>
-    </main>
+.step-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 [Nome da Sua Empresa]. Todos os direitos reservados. | Contato: (XX) XXXX-XXXX | E-mail: contato@[suaempresa].com</p>
-        </div>
-    </footer>
+.step-item h3 {
+    color: #004d99;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
 
-</body>
-</html>
+.step-item p {
+    font-size: 1em;
+    color: #666;
+}
 
+.secondary-cta {
+    background-color: #00aaff; /* Azul para segundo CTA */
+    box-shadow: 0 6px 15px rgba(0, 170, 255, 0.5);
+    margin-top: 50px; /* Mais espaçamento */
+}
+
+.secondary-cta:hover {
+    background-color: #0088cc;
+}
+
+/* SEÇÃO DEPOIMENTOS ESTILO FACEBOOK */
+.testimonials-facebook {
+    background-color: #fff;
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.testimonials-facebook h2 {
+    color: #004d99;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas flexíveis */
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.fb-comment {
+    background-color: #f0f2f5; /* Fundo similar ao FB */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.fb-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.fb-content {
+    flex-grow: 1;
+}
+
+.fb-name {
+    font-weight: 700;
+    color: #004d99;
+    margin-bottom: 3px;
+    font-size: 1.1em;
+}
+
+.fb-name .fb-time {
+    font-weight: 400;
+    color: #888;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.fb-text {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.fb-actions span {
+    color: #606770;
+    font-size: 0.9em;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.fb-actions span:hover {
+    text-decoration: underline;
+}
+
+/* SEÇÃO FAQ */
+.faq {
+    background-color: #e0f7fa; /* Fundo suave para FAQ */
+    padding: 80px 0;
+    text-align: center;
+}
+
+.faq h2 {
+    color: #004d99;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.accordion-item {
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden; /* Para o efeito de maxHeight */
+}
+
+.accordion-header {
+    background-color: #f0f8ff; /* Fundo do cabeçalho do acordeão */
+    color: #004d99;
+    padding: 18px 25px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 1.5em;
+    font-weight: 900;
+    transition: transform 0.3s;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '-';
+    transform: rotate(180deg);
+}
+
+.accordion-header:hover {
+    background-color: #e3f2fd;
+}
+
+.accordion-content {
+    padding: 0 25px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    margin: 0;
+    color: #555;
+    font-size: 1em;
+}
+
+/* FOOTER - Rodapé */
+footer {
+    background-color: #222;
+    color: #bbb;
+    padding: 30px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+footer a {
+    color: #00aaff; /* Azul para links no rodapé */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade Geral */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .subheadline {
+        font-size: 1.1em;
+    }
+
+    .cta-button {
+        font-size: 1.3em;
+        padding: 15px 30px;
+    }
+
+    .guarantee-badge {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .guarantee-badge p {
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .story-pain h2, .solution h2, .testimonials-facebook h2, .faq h2 {
+        font-size: 1.8em;
+    }
+
+    .pain-image {
+        max-width: 80%;
+    }
+
+    .steps-visual {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step-item {
+        max-width: 90%;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    }
+
+    .fb-comment {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .fb-content {
+        text-align: center;
+    }
+
+    .fb-avatar {
+        margin-bottom: 10px;
+    }
+
+    .fb-actions {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .accordion-header {
+        font-size: 1em;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-cta {
+        width: 100%;
+        text-align: center;
+    }
+}
