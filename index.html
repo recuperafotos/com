@@ -1,186 +1,182 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recupera Fotos - Recupere suas imagens apagadas</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recupera Fotos - Método Exclusivo</title>
+<style>
+/* Reset */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background:#f4f4f4; color:#333; line-height:1.6; overflow-x:hidden;}
+a {text-decoration:none;}
 
-    header {
-      background: #4CAF50; /* verde sucesso */
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-    }
+/* Header / Banner */
+header {
+  position:relative;
+  background: linear-gradient(90deg,#4CAF50,#66BB6A);
+  color:white;
+  text-align:center;
+  padding:80px 20px 120px;
+  overflow:hidden;
+}
+header h1 {font-size:3em; margin-bottom:15px; animation: slideDown 1s ease forwards;}
+header p {font-size:1.3em; margin-bottom:25px; animation: fadeIn 2s ease forwards;}
+.botao-comprar {
+  background:#FF9800;
+  color:white;
+  font-weight:bold;
+  padding:20px 40px;
+  border-radius:8px;
+  display:inline-block;
+  font-size:1.2em;
+  transition: all 0.3s;
+  animation: fadeIn 3s ease forwards;
+}
+.botao-comprar:hover { background:#FB8C00; transform: scale(1.05); }
 
-    header h1 {
-      margin: 0 0 10px 0;
-    }
+/* Keyframes */
+@keyframes slideDown { from {transform:translateY(-50px); opacity:0;} to {transform:translateY(0); opacity:1;} }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
-    header p {
-      font-size: 1.2em;
-    }
+/* Main */
+main { max-width:1000px; margin:-60px auto 30px; padding:0 20px; z-index:10; position:relative; }
 
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+/* Produto */
+.produto {
+  background:white; padding:40px 20px; border-radius:10px; text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,0.15); margin-bottom:50px; animation: fadeIn 1.5s ease forwards;
+}
+.produto img {max-width:100%; border-radius:10px; margin-bottom:20px;}
+.produto h2 {margin:20px 0 15px; font-size:2em; color:#4CAF50;}
+.produto p {font-size:1.1em; margin-bottom:20px;}
+.preco {font-size:2em; color:#e91e63; margin-bottom:20px;}
 
-    .produto {
-      background: white;
-      padding: 30px 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+/* Benefícios */
+.beneficios {display:flex; flex-wrap:wrap; justify-content:space-between; margin-bottom:50px;}
+.beneficio {
+  background:#e8f5e9; flex:0 0 48%; margin-bottom:20px; padding:25px;
+  border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.beneficio:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
 
-    .produto img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
+/* Depoimentos carrossel */
+.depoimentos { margin-bottom:50px; position:relative; }
+.depoimentos h2 { margin-bottom:20px; text-align:center; color:#4CAF50; }
+.depoimento {
+  background:#f0f0ff; padding:20px 25px; border-radius:8px;
+  margin-bottom:20px; border-left:5px solid #4CAF50; display:none;
+}
+.depoimento.active { display:block; animation: fadeIn 1s ease; }
 
-    .produto h2 {
-      margin: 20px 0 10px 0;
-    }
+/* Antes / Depois */
+.antes-depois { display:flex; flex-wrap:wrap; justify-content:space-between; margin-bottom:50px; }
+.antes, .depois { flex:0 0 48%; text-align:center; margin-bottom:20px; opacity:0; transition:opacity 1s ease, transform 1s ease; }
+.antes img, .depois img { width:100%; border-radius:10px; }
+.antes.visible, .depois.visible { opacity:1; transform:translateY(0); }
 
-    .produto p {
-      line-height: 1.6;
-      font-size: 1.1em;
-    }
+/* Garantia */
+.garantia { text-align:center; margin-bottom:50px; }
+.garantia img { width:150px; animation: rotate 2s linear infinite; }
+@keyframes rotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
-    .preco {
-      font-size: 2em;
-      color: #e91e63;
-      margin: 20px 0;
-    }
+/* FAQ */
+.faq { margin-bottom:50px; }
+.faq h3 { margin-bottom:10px; color:#4CAF50; }
+.faq p { margin-bottom:15px; }
 
-    .botao-comprar {
-      background: #4CAF50; /* verde sucesso */
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      display: inline-block;
-      margin-bottom: 30px;
-      transition: background 0.3s;
-    }
+/* Footer */
+footer { text-align:center; padding:20px; font-size:0.9em; color:#777; background:#f0f0f0; }
 
-    .botao-comprar:hover {
-      background: #45a049;
-    }
-
-    .beneficios {
-      margin-top: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .beneficio {
-      background: #e8f5e9;
-      flex: 0 0 48%;
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    }
-
-    .depoimentos {
-      margin-top: 50px;
-    }
-
-    .depoimento {
-      background: #f0fff0;
-      padding: 15px 20px;
-      margin-bottom: 20px;
-      border-left: 5px solid #4CAF50;
-      border-radius: 5px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #777;
-      margin-top: 50px;
-    }
-
-    @media(max-width:600px){
-      .beneficio {
-        flex: 0 0 100%;
-      }
-
-      .botao-comprar {
-        width: 100%;
-        box-sizing: border-box;
-      }
-    }
-  </style>
+/* Responsivo */
+@media(max-width:768px){
+  .beneficio, .antes, .depois { flex:0 0 100%; }
+  .botao-comprar { width:100%; }
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Recupera Fotos</h1>
-    <p>Recupere suas fotos e vídeos apagados do celular ou Google Fotos em poucos minutos!</p>
-  </header>
 
-  <main>
-    <div class="produto">
-      <img src="https://via.placeholder.com/600x400?text=Recupere+sua+galeria" alt="Recupera Fotos">
-      <h2>Recupera Fotos - Método completo</h2>
-      <p>Descubra o método comprovado para recuperar fotos e vídeos apagados de qualquer celular.  
-      Não importa se foi excluído da galeria ou do Google Fotos, com este método você consegue recuperar rapidamente e sem complicações.</p>
-      <div class="preco">R$ 47,00</div>
-      <a href="https://pay.urusoficial.com.br/ZB46QGDGF6X4U" class="botao-comprar">Quero recuperar agora</a>
-    </div>
+<header>
+  <h1>Recupera Fotos</h1>
+  <p>Método exclusivo para recuperar fotos e vídeos apagados do celular!</p>
+  <a href="https://pay.urusoficial.com.br/ZB46QGDGF6X4U" class="botao-comprar">Quero recuperar agora</a>
+</header>
 
-    <div class="beneficios">
-      <div class="beneficio">
-        <strong>Recuperação rápida</strong>
-        <p>Recupere arquivos apagados em minutos, sem necessidade de conhecimento técnico avançado.</p>
-      </div>
-      <div class="beneficio">
-        <strong>Funciona em qualquer dispositivo</strong>
-        <p>Compatível com Android, iOS e todos os principais aplicativos de galeria e Google Fotos.</p>
-      </div>
-      <div class="beneficio">
-        <strong>Seguro e confiável</strong>
-        <p>Seu conteúdo é recuperado de forma segura, sem risco de perda adicional de arquivos.</p>
-      </div>
-      <div class="beneficio">
-        <strong>Passo a passo detalhado</strong>
-        <p>Você recebe um guia completo e fácil de seguir, garantindo resultados rápidos e eficazes.</p>
-      </div>
-    </div>
+<main>
 
-    <div class="depoimentos">
-      <h2>O que nossos clientes dizem</h2>
-      <div class="depoimento">
-        <strong>Lucas M.</strong>
-        <p>Recuperei todas as fotos que achei que tinha perdido para sempre! Esse método é realmente incrível.</p>
-      </div>
-      <div class="depoimento">
-        <strong>Ana P.</strong>
-        <p>Funcionou perfeitamente no meu celular antigo. Fiquei impressionada com a facilidade de seguir o passo a passo.</p>
-      </div>
-      <div class="depoimento">
-        <strong>Rafael S.</strong>
-        <p>Vale cada centavo! Consegui recuperar vídeos importantes que tinha apagado sem querer.</p>
-      </div>
-    </div>
-  </main>
+<div class="produto">
+  <img src="https://via.placeholder.com/800x400?text=Recupere+sua+galeria" alt="Recupera Fotos">
+  <h2>Método exclusivo não disponível para o público</h2>
+  <p>Este método usa tecnologia avançada semelhante à utilizada em investigações profissionais para recuperar arquivos apagados. Os métodos tradicionais não funcionam, mas aqui você terá acesso a uma solução única.</p>
+  <div class="preco">R$ 47,00</div>
+  <a href="https://pay.urusoficial.com.br/ZB46QGDGF6X4U" class="botao-comprar">Quero recuperar agora</a>
+</div>
 
-  <footer>
-    &copy; 2025 Recupera Fotos. Todos os direitos reservados.
-  </footer>
+<div class="antes-depois">
+  <div class="antes">
+    <img src="https://via.placeholder.com/400x300?text=Antes+triste" alt="Antes">
+    <p>Antes: Desesperado por não conseguir recuperar suas fotos</p>
+  </div>
+  <div class="depois">
+    <img src="https://via.placeholder.com/400x300?text=Depois+feliz" alt="Depois">
+    <p>Depois: Feliz por recuperar fotos importantes com facilidade!</p>
+  </div>
+</div>
+
+<div class="garantia">
+  <img src="https://via.placeholder.com/150x150?text=Selo+7+dias" alt="Garantia 7 dias">
+  <p>Garantia de 7 dias: Se não funcionar, você recebe seu dinheiro de volta!</p>
+</div>
+
+<div class="beneficios">
+  <div class="beneficio"><strong>Recuperação rápida</strong><p>Recupere fotos e vídeos em minutos, sem complicações.</p></div>
+  <div class="beneficio"><strong>Funciona em qualquer dispositivo</strong><p>Compatível com Android, iOS e Google Fotos.</p></div>
+  <div class="beneficio"><strong>Seguro e confiável</strong><p>Seus arquivos são recuperados com segurança, sem risco de perda adicional.</p></div>
+  <div class="beneficio"><strong>Passo a passo detalhado</strong><p>Guia completo e fácil de seguir, garantindo resultados rápidos.</p></div>
+</div>
+
+<div class="depoimentos">
+  <h2>O que as pessoas estão dizendo</h2>
+  <div class="depoimento active"><strong>João Silva</strong><p>“Incrível! Pensei que minhas fotos antigas tinham sumido para sempre, mas consegui recuperar todas!”</p></div>
+  <div class="depoimento"><strong>Maria Oliveira</strong><p>“Funcionou exatamente como prometido. Agora minhas lembranças estão de volta!”</p></div>
+  <div class="depoimento"><strong>Carlos Santos</strong><p>“Recomendo para todo mundo que perdeu fotos importantes. Super fácil de usar!”</p></div>
+</div>
+
+<div class="faq">
+<h2>Perguntas Frequentes</h2>
+<h3>Funciona em qualquer celular?</h3><p>Sim! Compatível com Android e iOS, além do Google Fotos.</p>
+<h3>Preciso instalar algum aplicativo?</h3><p>Não, você receberá um método passo a passo, sem softwares complicados.</p>
+<h3>Em quanto tempo vejo resultados?</h3><p>Na maioria dos casos, em poucos minutos após seguir o guia.</p>
+</div>
+
+</main>
+
+<footer>
+&copy; 2025 Recupera Fotos. Todos os direitos reservados.
+</footer>
+
+<script>
+// Depoimentos rotativos
+let depoimentos = document.querySelectorAll('.depoimento');
+let index = 0;
+setInterval(() => {
+  depoimentos[index].classList.remove('active');
+  index = (index + 1) % depoimentos.length;
+  depoimentos[index].classList.add('active');
+}, 4000);
+
+// Animação scroll antes/depois
+function animaScroll(){
+  let antes = document.querySelector('.antes');
+  let depois = document.querySelector('.depois');
+  let trigger = window.innerHeight*0.8;
+  if(antes.getBoundingClientRect().top < trigger){antes.classList.add('visible');}
+  if(depois.getBoundingClientRect().top < trigger){depois.classList.add('visible');}
+}
+window.addEventListener('scroll', animaScroll);
+window.addEventListener('load', animaScroll);
+</script>
+
 </body>
 </html>
