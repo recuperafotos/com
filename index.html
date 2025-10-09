@@ -24,7 +24,6 @@
             overflow: hidden; 
             padding: 20px 0; 
         }
-        /* MELHORIA: Aumenta a legibilidade do texto no corpo */
         p {
             font-size: 1.1em;
             margin-bottom: 20px;
@@ -45,6 +44,24 @@
             margin-bottom: 0; 
         } 
 
+        /* ESTILO DO VÍDEO INTEGRADO (Novo) */
+        .video-container {
+            width: 100%;
+            max-width: 700px; /* Um pouco menor para melhor visual */
+            aspect-ratio: 16 / 9; /* Proporção padrão de vídeo */
+            margin: 30px auto;
+            border: 4px solid #e74c3c; /* Borda vermelha de destaque */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* FIM - ESTILO DO VÍDEO INTEGRADO */
+
         /* SEÇÃO HERO E PREÇO */
         #hero, #solucao, #garantia-box { 
             background: white; 
@@ -54,41 +71,39 @@
             text-align: center; 
             margin-bottom: 30px;
         }
-        /* CORREÇÃO SEMÂNTICA: Apenas um H1 por página */
         #hero h1 { font-size: 2.5em; line-height: 1.2; }
         
-        /* OTIMIZAÇÃO: Destaque visual do preço */
         .price-box {
-            background-color: #f1c40f; /* Fundo Amarelo */
-            color: #c0392b; /* Texto em Vermelho Forte */
+            background-color: #ffeb3b; 
+            color: #2c3e50; 
             padding: 15px 25px;
             border-radius: 8px;
             margin: 25px auto;
-            display: block; /* Usa largura total para mais destaque */
+            display: block; 
             max-width: 400px;
-            font-size: 2.2em; /* Fonte maior */
+            font-size: 2.2em; 
             font-weight: bold;
-            border: 3px solid #f39c12;
+            border: 3px solid #fbc02d; 
             line-height: 1.1;
         }
         .price-small-text {
             font-size: 0.6em;
             font-weight: normal;
             display: block;
-            color: #2c3e50;
+            color: #c0392b; 
         }
         
         /* BOTÃO CTA */
         .cta-button {
-            display: block; /* Usa largura total para mobile */
-            max-width: 450px; /* Limita o tamanho em desktop */
+            display: block; 
+            max-width: 450px; 
             margin: 30px auto 10px auto;
             background-color: #27ae60; 
             color: white;
             padding: 18px 40px;
             text-decoration: none;
             border-radius: 50px; 
-            font-size: 1.6em; /* Fonte levemente maior */
+            font-size: 1.6em; 
             font-weight: bold;
             transition: background-color 0.3s, transform 0.3s;
             box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
@@ -97,7 +112,7 @@
 
         /* URGÊNCIA: Contador Regressivo */
         #timer-box {
-            background-color: #e74c3c; /* Vermelho de Urgência */
+            background-color: #e74c3c; 
             color: white;
             padding: 10px;
             border-radius: 5px;
@@ -118,7 +133,7 @@
             border-radius: 8px; 
             text-align: center; 
             margin-bottom: 30px; 
-            border-left: 5px solid #e74c3c; /* Linha de destaque */
+            border-left: 5px solid #e74c3c; 
         }
         #autoridade h3 { color: #2c3e50; margin-bottom: 15px; }
 
@@ -129,31 +144,36 @@
             background: white; 
             padding: 15px; 
             border-radius: 8px; 
-            margin-bottom: 20px; /* Mais espaçamento */
+            margin-bottom: 25px;
             text-align: left; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
         }
         .fb-header { display: flex; align-items: center; margin-bottom: 5px; }
-        /* CORREÇÃO: Usando um ícone simples em vez de uma caixa vazia */
         .fb-avatar { 
             width: 40px; 
             height: 40px; 
             border-radius: 50%; 
-            background-color: #385898; /* Cor do Facebook */
+            background-color: #385898; 
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em; /* Se fosse usar um ícone */
+            font-size: 1.5em; 
             margin-right: 10px; 
         }
         .fb-name { font-weight: bold; color: #385898; font-size: 1.1em; }
         .fb-text { margin-top: 5px; }
+        .fb-like {
+            display: block; 
+            color: #616770; 
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
         
         /* GARANTIA */
         #garantia-box { 
             text-align: center; 
-            background-color: #f39c12; /* Laranja */
+            background-color: #f39c12; 
             color: white; 
             padding: 30px; 
             border-radius: 8px; 
@@ -176,7 +196,12 @@
 <body>
 
     <header>
-        <img id="logo" src="imagens/logo-recupera-fotos.webp" alt="Logo Recupera Fotos - Resgate de Mídias Apagadas">
+        <img id="logo" 
+             src="imagens/logo-recupera-fotos.webp" 
+             alt="Logo Recupera Fotos - Resgate de Mídias Apagadas"
+             width="250" 
+             height="70"
+             loading="lazy">
     </header>
 
     <div class="container">
@@ -184,6 +209,15 @@
         <section id="hero">
             <h1>A Frustração de Perder Aquele Momento Único para Sempre... E a Sensação de que Não Há Mais Nada a Fazer.</h1>
             
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/3MfokCQLJ3Q"
+                    title="Como Recuperar Suas Fotos"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
             <p>Aquele batizado. A viagem inesquecível. O primeiro passo do seu filho. Quando a foto some do celular, é como se a memória fosse junto. Você sente um vazio sabendo que o momento se foi para sempre.</p>
             
             <p style="font-size: 1.4em; color: #e74c3c; font-weight: bold; margin-top: 30px;">🚨 PARE TUDO! Seus momentos ainda podem ser resgatados.</p>
@@ -217,7 +251,7 @@
             <div id="autoridade">
                 <h2>O que isso significa?</h2>
                 <p style="font-weight: bold;">Desenvolvido por um ex-perito forense digital, este protocolo foi adaptado para que qualquer pessoa possa usá-lo com apenas alguns toques na tela.</p>
-                <p>Significa que este método não é um app e não é um tutorial comum. Ele explora uma falha na forma como o Android e o iOS gerenciam o lixo de dados, permitindo que você resgate fotos **meses ou anos após o apagamento.</p>
+                <p>Significa que este método não é um app e não é um tutorial comum. Ele explora uma falha na forma como o Android e o iOS gerenciam o lixo de dados, permitindo que você resgate fotos **meses ou anos** após o apagamento.</p>
                 <p style="font-weight: bold; color: #e74c3c;">Você terá em suas mãos o nível máximo de tecnologia de recuperação.</p>
             </div>
             
@@ -289,7 +323,6 @@
             function startTimer(duration) {
                 var timer = duration, minutes, seconds;
                 
-                // Pega a hora de expiração no LocalStorage (para persistir a urgência)
                 var expiryTime = localStorage.getItem('expiryTime');
                 if (!expiryTime || new Date().getTime() > expiryTime) {
                     expiryTime = new Date().getTime() + duration * 1000;
@@ -303,7 +336,6 @@
                     if (distance < 0) {
                         clearInterval(countdown);
                         timerDisplay.textContent = "Oferta Expirada!";
-                        // OPCIONAL: Mude o texto do botão CTA aqui
                         return;
                     }
                     
