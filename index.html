@@ -325,4 +325,29 @@
                 }
                 
                 var countdown = setInterval(function () {
-                    var now = new Date().
+                    var now = new Date().getTime();
+                    var distance = expiryTime - now;
+
+                    if (distance < 0) {
+                        clearInterval(countdown);
+                        timerDisplay.textContent = "Oferta Expirada!";
+                        return;
+                    }
+                    
+                    minutes = Math.floor( (distance % (1000 * 60 * 60)) / (1000 * 60) );
+                    seconds = Math.floor( (distance % (1000 * 60)) / 1000 );
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    timerDisplay.textContent = minutes + ":" + seconds;
+
+                }, 1000);
+            }
+
+            startTimer(duration);
+        });
+    </script>
+
+</body>
+</html>
