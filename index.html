@@ -85,17 +85,12 @@
             margin: 25px auto;
             display: block; 
             max-width: 400px;
-            font-size: 2.2em; 
+            font-size: 2.8em; /* Aumentado um pouco o preço, já que o texto pequeno sumiu */
             font-weight: bold;
             border: 3px solid #fbc02d; 
             line-height: 1.1;
         }
-        .price-small-text {
-            font-size: 0.6em;
-            font-weight: normal;
-            display: block;
-            color: #c0392b; 
-        }
+        /* .price-small-text removido */
         
         /* BOTÃO CTA */
         .cta-button {
@@ -114,22 +109,8 @@
         }
         .cta-button:hover { background-color: #2ecc71; transform: translateY(-3px); }
 
-        /* URGÊNCIA: Contador Regressivo */
-        #timer-box {
-            background-color: #e74c3c; 
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 15px auto;
-            max-width: 400px;
-            font-weight: bold;
-        }
-        #timer {
-            font-size: 1.4em;
-            display: block;
-            margin-top: 5px;
-        }
-
+        /* URGÊNCIA: Contador Regressivo (#timer-box removido do HTML) */
+        
         /* AUTORIDADE POLICIAL */
         #autoridade { 
             background-color: #ecf0f1; 
@@ -223,7 +204,6 @@
             <p style="font-size: 1.4em; color: #e74c3c; font-weight: bold; margin-top: 30px;">🚨 PARE TUDO! Seus momentos ainda podem ser resgatados.</p>
 
             <div class="price-box">
-                <span class="price-small-text">ACESSO IMEDIATO POR APENAS:</span>
                 R$ 47,00
             </div>
             
@@ -231,10 +211,6 @@
                 QUERO RECUPERAR MINHAS FOTOS AGORA
             </a>
 
-            <div id="timer-box">
-                O preço promocional de R$ 47,00 expira em:
-                <span id="timer"></span>
-            </div>
             <p style="margin-top: 15px; font-size: 0.9em; color: #555;">Pagamento Único. Sem mensalidades ou taxas escondidas.</p>
         </section>
 
@@ -315,44 +291,5 @@
         <p style="font-size: 0.8em; margin-top: 5px;">Aviso Legal: Os resultados podem variar. O método é baseado em técnicas de recuperação avançadas.</p>
     </footer>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var timerDisplay = document.getElementById('timer');
-            var duration = 900; // 15 minutos em segundos (900s)
-
-            function startTimer(duration) {
-                var timer = duration, minutes, seconds;
-                
-                var expiryTime = localStorage.getItem('expiryTime');
-                if (!expiryTime || new Date().getTime() > expiryTime) {
-                    expiryTime = new Date().getTime() + duration * 1000;
-                    localStorage.setItem('expiryTime', expiryTime);
-                }
-                
-                var countdown = setInterval(function () {
-                    var now = new Date().getTime();
-                    var distance = expiryTime - now;
-
-                    if (distance < 0) {
-                        clearInterval(countdown);
-                        timerDisplay.textContent = "Oferta Expirada!";
-                        return;
-                    }
-                    
-                    minutes = Math.floor( (distance % (1000 * 60 * 60)) / (1000 * 60) );
-                    seconds = Math.floor( (distance % (1000 * 60)) / 1000 );
-
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                    timerDisplay.textContent = minutes + ":" + seconds;
-
-                }, 1000);
-            }
-
-            startTimer(duration);
-        });
-    </script>
-
-</body>
+    </body>
 </html>
