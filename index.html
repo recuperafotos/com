@@ -1,198 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recupera Fotos - O Método Policial Secreto para Resgatar Suas Memórias!</title>
-    
     <meta name="description" content="Recupere suas fotos e vídeos apagados há meses ou anos no seu celular Android ou iPhone. Descubra o método policial secreto, fácil de usar e 100% garantido por apenas R$ 47,00.">
-    
     <style>
-        /* ESTILOS CSS GERAIS */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #34495e; /* AZUL MÉDIO/ESCURO */
-            color: #333; 
-            line-height: 1.6; 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #00FF00;
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
-        .container { 
-            width: 90%; 
-            max-width: 1000px; 
-            margin: auto; 
-            overflow: hidden; 
-            padding: 20px 0; 
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        /* MELHORIA: Aumenta a legibilidade do texto no corpo */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            color: #00FF00;
+        }
         p {
             font-size: 1.1em;
-            margin-bottom: 20px;
+            color: #C0C0C0;
+            line-height: 1.6;
         }
-        h1, h2, h3 { color: #e74c3c; text-align: center; }
-
-        /* CABEÇALHO E LOGO */
-        header { 
-            background-color: white; 
-            padding: 1em 0; 
-            text-align: center; 
-            border-bottom: 5px solid #2c3e50;
+        hr {
+            border-color: #00FF00;
         }
-        #logo { 
-            width: 100%; 
-            max-width: 250px; 
-            height: auto; 
-            margin-bottom: 0; 
-        } 
-
-        /* SEÇÃO HERO E PREÇO */
-        #hero, #solucao, #garantia-box { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
-            text-align: center; 
-            margin-bottom: 30px;
+        header {
+            padding: 30px 10px;
         }
-        /* CORREÇÃO SEMÂNTICA: Apenas um H1 por página */
-        #hero h1 { font-size: 2.5em; line-height: 1.2; }
-        
-        /* OTIMIZAÇÃO: Destaque visual do preço */
+        .hero-section {
+            padding: 40px 20px;
+        }
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            border: 6px solid #00FF00;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 30px auto;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
         .price-box {
-            background-color: #f1c40f; /* Fundo Amarelo */
-            color: #c0392b; /* Texto em Vermelho Forte */
-            padding: 15px 25px;
-            border-radius: 8px;
-            margin: 25px auto;
-            display: block; /* Usa largura total para mais destaque */
-            max-width: 400px;
-            font-size: 2.2em; /* Fonte maior */
+            background-color: #00FF00;
+            color: #000;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 2em;
             font-weight: bold;
-            border: 3px solid #f39c12;
-            line-height: 1.1;
+            margin: 20px 0;
+            border: 2px solid #33FF33;
         }
-        .price-small-text {
-            font-size: 0.6em;
-            font-weight: normal;
+        .price-box span {
             display: block;
-            color: #2c3e50;
+            font-size: 0.6em;
+            color: #111;
+            font-weight: normal;
         }
-        
-        /* BOTÃO CTA */
         .cta-button {
-            display: block; /* Usa largura total para mobile */
-            max-width: 450px; /* Limita o tamanho em desktop */
-            margin: 30px auto 10px auto;
-            background-color: #27ae60; 
-            color: white;
-            padding: 18px 40px;
+            display: inline-block;
+            background-color: #00FF00;
+            color: #000;
+            padding: 15px 35px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 50px; 
-            font-size: 1.6em; /* Fonte levemente maior */
+            font-size: 1.4em;
             font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+            margin-top: 15px;
+            transition: background-color 0.3s, transform 0.1s;
         }
-        .cta-button:hover { background-color: #2ecc71; transform: translateY(-3px); }
-
-        /* URGÊNCIA: Contador Regressivo */
+        .cta-button:hover {
+            background-color: #33FF33;
+            transform: translateY(-2px);
+        }
         #timer-box {
-            background-color: #e74c3c; /* Vermelho de Urgência */
-            color: white;
+            background-color: #FF0000;
+            color: #fff;
             padding: 10px;
-            border-radius: 5px;
-            margin: 15px auto;
+            border-radius: 8px;
+            margin: 20px auto;
             max-width: 400px;
             font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
         }
         #timer {
-            font-size: 1.4em;
             display: block;
+            font-size: 1.4em;
             margin-top: 5px;
         }
 
-        /* AUTORIDADE POLICIAL */
-        #autoridade { 
-            background-color: #ecf0f1; 
-            padding: 40px; 
-            border-radius: 8px; 
-            text-align: center; 
-            margin-bottom: 30px; 
-            border-left: 5px solid #e74c3c; /* Linha de destaque */
+        /* Autoridade / revisão adicionada */
+        #autoridade {
+            background-color: #0A0A0A;
+            border-left: 5px solid #00FF00;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: left;
+            color: #D0D0D0;
         }
-        #autoridade h3 { color: #2c3e50; margin-bottom: 15px; }
-
-        /* DEPOIMENTOS */
-        #depoimentos { padding: 40px 0; }
-        .depoimentos-titulo { color: white; margin-bottom: 30px; font-size: 2em; }
-        .fb-comment { 
-            background: white; 
-            padding: 15px; 
-            border-radius: 8px; 
-            margin-bottom: 20px; /* Mais espaçamento */
-            text-align: left; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        #autoridade h2 {
+            color: #00FF00;
+            margin-top: 0;
         }
-        .fb-header { display: flex; align-items: center; margin-bottom: 5px; }
-        /* CORREÇÃO: Usando um ícone simples em vez de uma caixa vazia */
-        .fb-avatar { 
-            width: 40px; 
-            height: 40px; 
-            border-radius: 50%; 
-            background-color: #385898; /* Cor do Facebook */
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em; /* Se fosse usar um ícone */
-            margin-right: 10px; 
+        .authority-lead {
+            display: block;
+            font-size: 1.1em;
+            color: #CFFFCF;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
-        .fb-name { font-weight: bold; color: #385898; font-size: 1.1em; }
-        .fb-text { margin-top: 5px; }
-        
-        /* GARANTIA */
-        #garantia-box { 
-            text-align: center; 
-            background-color: #f39c12; /* Laranja */
-            color: white; 
-            padding: 30px; 
-            border-radius: 8px; 
-            margin-bottom: 30px; 
+        .authority-paragraph {
+            margin-bottom: 12px;
+            color: #C0C0C0;
         }
-        .seal-icon { 
-            font-size: 50px; 
-            color: #2c3e50; 
-            background: white; 
-            border-radius: 50%; 
-            padding: 10px;
-            display: inline-block;
-            line-height: 1;
+        .authority-what {
+            background: rgba(0,255,0,0.03);
+            border: 1px dashed rgba(0,255,0,0.06);
+            padding: 14px;
+            border-radius: 6px;
+            margin-top: 12px;
+        }
+        .authority-what h3 {
+            margin: 0 0 8px 0;
+            color: #00FF00;
+            text-transform: none;
+        }
+        .authority-what p {
+            margin: 0;
+            color: #D8FFD8;
+            line-height: 1.5;
         }
 
-        /* RODAPÉ */
-        footer { background-color: #2c3e50; color: #bdc3c7; text-align: center; padding: 1.5em 0; margin-top: 50px; font-size: 0.8em; }
+        .testimonials-section {
+            background-color: #050505;
+            border-top: 2px solid #00FF00;
+            padding: 40px 20px;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .testimonial-card {
+            background-color: #111;
+            border-left: 5px solid #00FF00;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            color: #E0E0E0;
+        }
+        .testimonial-card strong {
+            color: #00FF00;
+        }
+        #garantia-box {
+            background-color: #111;
+            border: 2px solid #00FF00;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        .seal-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        /* Responsividade simples */
+        @media (max-width: 600px) {
+            .price-box { font-size: 1.6em; padding: 12px 20px; }
+            .cta-button { padding: 12px 25px; font-size: 1.1em; }
+            #autoridade { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <img id="logo" src="imagens/logo-recupera-fotos.webp" alt="Logo Recupera Fotos - Resgate de Mídias Apagadas">
+        <h1>Recupera Fotos - O Método Policial Secreto para Resgatar Suas Memórias!</h1>
+        <p>Recupere suas fotos e vídeos apagados há meses ou anos no seu celular Android ou iPhone. Descubra o método policial secreto, fácil de usar e 100% garantido por apenas R$ 47,00.</p>
     </header>
 
     <div class="container">
-        
-        <section id="hero">
-            <h1>A Frustração de Perder Aquele Momento Único para Sempre... E a Sensação de que Não Há Mais Nada a Fazer.</h1>
-            
-            <p>Aquele batizado. A viagem inesquecível. O primeiro passo do seu filho. Quando a foto some do celular, é como se a memória fosse junto. *Você sente um vazio sabendo que o momento se foi para sempre.*</p>
-            
-            <p style="font-size: 1.4em; color: #e74c3c; font-weight: bold; margin-top: 30px;">🚨 PARE TUDO! Seus momentos ainda podem ser resgatados.</p>
+
+        <section class="hero-section">
+            <h2>Assista e Descubra Como Recuperar Suas Fotos Agora</h2>
+
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/3MfokCQLJ3Q"
+                    title="Como Recuperar Suas Fotos"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p style="color:#00FF00; font-weight:bold;">🚨 PARE TUDO! Seus momentos ainda podem ser resgatados!</p>
 
             <div class="price-box">
-                <span class="price-small-text">ACESSO IMEDIATO POR APENAS:</span>
+                <span>ACESSO IMEDIATO POR APENAS:</span>
                 R$ 47,00
             </div>
-            
+
             <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
                 QUERO RECUPERAR MINHAS FOTOS AGORA
             </a>
@@ -201,126 +229,75 @@
                 O preço promocional de R$ 47,00 expira em:
                 <span id="timer"></span>
             </div>
-            <p style="margin-top: 15px; font-size: 0.9em; color: #555;">Pagamento Único. Sem mensalidades ou taxas escondidas.</p>
         </section>
 
-        <section id="dor-aprofundada" style="text-align: center; padding: 30px 0; color: white;">
-            <h2 style="color: #f1c40f;">Pare de Perder Tempo Tentando!</h2>
-            <p>Você já tentou baixar aplicativos esquisitos? Já procurou tutoriais complexos no YouTube? Eles *NÃO funcionam* porque não conseguem acessar o nível mais profundo do sistema de dados do seu celular. *Você estava fadado a falhar!*</p>
-            <hr style="border-top: 1px dashed #f1c40f; width: 50%;">
+        <!-- Seção de autoridade atualizada com o texto que você pediu (revisado e profissional) -->
+        <section id="autoridade">
+            <h2>A Chave Estava Oculta — Usada Apenas por Profissionais de Elite</h2>
+
+            <span class="authority-lead">O método <em>"Recupera Fotos"</em> foi desenvolvido com base nos mesmos protocolos de <strong>Inteligência de Investigação Policial</strong> utilizados para rastrear e extrair dados de celulares em investigações reais.</span>
+
+            <p class="authority-paragraph">
+                Desenvolvido por um <strong>ex-perito forense digital</strong>, o protocolo foi adaptado para que qualquer pessoa consiga aplicá-lo com apenas alguns toques na tela — sem necessidade de formação técnica. 
+            </p>
+
+            <div class="authority-what">
+                <h3>O que isso significa?</h3>
+                <p>
+                    Este método <strong>não</strong> é um aplicativo comum e <strong>não</strong> é um tutorial genérico. Trata-se de uma técnica que explora uma particularidade na forma como Android e iOS gerenciam o lixo de dados, permitindo o resgate de fotos <strong><em>meses ou até anos</em></strong> após o apagamento.
+                </p>
+            </div>
+
+            <p class="authority-paragraph" style="color:#FFDDDD; font-weight:700;">
+                Em suas mãos estará o nível máximo de tecnologia de recuperação — resultado de conhecimento forense profissional entregue de forma segura e prática.
+            </p>
         </section>
 
-        <section id="solucao">
-            <h2>A Chave Estava Oculta, Usada Apenas por Profissionais de Elite.</h2>
-            <p>O método *"Recupera Fotos"* foi desenvolvido com base nos mesmos protocolos de *Inteligência de Investigação Policial* utilizados para rastrear e extrair dados de celulares em casos criminais.</p>
-            
-            <div id="autoridade">
-                <h2>O que isso significa?</h2>
-                <p style="font-weight: bold;">Desenvolvido por um ex-perito forense digital, este protocolo foi adaptado para que qualquer pessoa possa usá-lo com apenas alguns toques na tela.</p>
-                <p>Significa que este método *não é um app* e *não é um tutorial comum. Ele explora uma falha na forma como o Android e o iOS gerenciam o lixo de dados, permitindo que você resgate fotos **meses ou anos* após o apagamento.</p>
-                <p style="font-weight: bold; color: #e74c3c;">Você terá em suas mãos o nível máximo de tecnologia de recuperação.</p>
-            </div>
-            
-             <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
-                QUERO RECUPERAR MINHAS FOTOS AGORA
-            </a>
-            
-            <p style="margin-top: 15px; font-size: 0.9em;">Compatível com 99% dos celulares Android e iPhone. Faça tudo pelo celular.</p>
-        </section>
-        
-        <section id="depoimentos">
-            <h2 class="depoimentos-titulo">Veja Quem Já Resgatou Suas Memórias</h2>
-            
-            <div class="fb-comment">
-                <div class="fb-header">
-                    <div class="fb-avatar">✅</div> <span class="fb-name">Carla S.</span>
+        <section class="testimonials-section">
+            <h2>Depoimentos Reais</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Em 8 minutos recuperei todas as fotos da formatura. Eu tinha tentado de tudo antes!"</p>
+                    <strong>— Carla S.</strong>
                 </div>
-                <p class="fb-text">"Pensei que tinha perdido as fotos da formatura para sempre. Tentei todos os apps! Em 8 minutos com esse método, todas as fotos voltaram. Meu Deus, inacreditável!"</p>
-                <span class="fb-like">Curtir · Responder · 32 curtidas · 5 min</span>
-            </div>
-            
-            <div class="fb-comment">
-                <div class="fb-header">
-                    <div class="fb-avatar">✅</div>
-                    <span class="fb-name">Pedro H.</span>
+                <div class="testimonial-card">
+                    <p>"Recuperei fotos de 2 anos atrás! R$47 foi o melhor investimento que fiz."</p>
+                    <strong>— Pedro H.</strong>
                 </div>
-                <p class="fb-text">"Achei que o valor era baixo demais para funcionar, mas o risco era só 47 reais. O resultado? Recuperei as fotos de 2 anos atrás! Vocês são gênios, obrigado!"</p>
-                <span class="fb-like">Curtir · Responder · 58 curtidas · 12 min</span>
-            </div>
-            
-            <div class="fb-comment">
-                <div class="fb-header">
-                    <div class="fb-avatar">✅</div>
-                    <span class="fb-name">Maria L.</span>
+                <div class="testimonial-card">
+                    <p>"Funcionou no meu iPhone e trouxe de volta fotos do nascimento do meu neto. Emocionante!"</p>
+                    <strong>— Maria L.</strong>
                 </div>
-                <p class="fb-text">"O suporte é muito atencioso. A instrução é simples e funcionou perfeitamente no meu iPhone. Resgatei fotos do nascimento do meu neto. Não tem preço!"</p>
-                <span class="fb-like">Curtir · Responder · 10 curtidas · 20 min</span>
+                <div class="testimonial-card">
+                    <p>"Achei que fosse golpe, mas funcionou. Agora recomendo pra todo mundo!"</p>
+                    <strong>— João V.</strong>
+                </div>
             </div>
         </section>
-        
+
         <section id="garantia-box">
-            <span class="seal-icon">🔒</span>
-            <h2>Seu Risco É ZERO!</h2>
-            <p style="font-size: 1.2em; font-weight: bold;">Garantia Incondicional de 7 Dias!</p>
-            <p>Se você não conseguir recuperar nenhuma foto ou não gostar do método, basta nos enviar um e-mail. Devolveremos *100% do seu dinheiro*, sem perguntas.</p>
-        </section>
+            <div class="seal-icon">🔒</div>
+            <h2>Garantia Incondicional de 7 Dias!</h2>
+            <p>Se você não conseguir recuperar nenhuma foto, <strong>devolvemos 100% do seu dinheiro</strong>, sem perguntas. Seu risco é zero.</p>
 
-        <section id="cta-final" style="text-align: center; padding: 40px 0; color: white;">
-             <h2>Não Deixe Suas Memórias no Lixo Digital.</h2>
-             <p style="font-size: 1.3em; font-weight: bold;">Acesse o método *Recupera Fotos* por apenas *R$ 47,00* antes que essa oportunidade termine.</p>
-             <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
+            <a href="https://redirect.urusoficial.com.br/ZB46QGDGF6X4U" target="_blank" class="cta-button">
                 QUERO RECUPERAR MINHAS FOTOS AGORA
             </a>
-            <p style="margin-top: 15px; font-size: 0.9em; color: #bdc3c7;">Seus dados de compra são 100% seguros.</p>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2025 Recupera Fotos. Todos os direitos reservados.</p>
-        <p style="font-size: 0.8em; margin-top: 5px;">Aviso Legal: Os resultados podem variar. O método é baseado em técnicas de recuperação avançadas.</p>
+        &copy; 2025 Recupera Fotos. Todos os direitos reservados. <br>
+        <small>Os resultados podem variar. O método é baseado em técnicas reais de recuperação de dados.</small>
     </footer>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var timerDisplay = document.getElementById('timer');
-            var duration = 900; // 15 minutos em segundos (900s)
+            var duration = 900; // 15 minutos
 
-            function startTimer(duration) {
-                var timer = duration, minutes, seconds;
-                
-                // Pega a hora de expiração no LocalStorage (para persistir a urgência)
-                var expiryTime = localStorage.getItem('expiryTime');
-                if (!expiryTime || new Date().getTime() > expiryTime) {
-                    expiryTime = new Date().getTime() + duration * 1000;
-                    localStorage.setItem('expiryTime', expiryTime);
-                }
-                
-                var countdown = setInterval(function () {
-                    var now = new Date().getTime();
-                    var distance = expiryTime - now;
-
-                    if (distance < 0) {
-                        clearInterval(countdown);
-                        timerDisplay.textContent = "Oferta Expirada!";
-                        // OPCIONAL: Mude o texto do botão CTA aqui
-                        return;
-                    }
-                    
-                    minutes = Math.floor( (distance % (1000 * 60 * 60)) / (1000 * 60) );
-                    seconds = Math.floor( (distance % (1000 * 60)) / 1000 );
-
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                    timerDisplay.textContent = minutes + ":" + seconds;
-
-                }, 1000);
-            }
-
-            startTimer(duration);
-        });
-    </script>
-
-</body>
-</html>
+            var expiryTime = localStorage.getItem('expiryTime');
+            if (!expiryTime || new Date().getTime() > expiryTime) {
+                expiryTime = new Date().getTime() + duration * 1000;
+                localStorage.setItem('expiryTime', expiryTime);
