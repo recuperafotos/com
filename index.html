@@ -37,6 +37,7 @@
             text-align: center; 
             border-bottom: 5px solid #2c3e50;
         }
+        /* O estilo #logo não é mais necessário, mas o mantive para o caso de precisar reutilizar */
         #logo { 
             width: 100%; 
             max-width: 250px; 
@@ -196,13 +197,7 @@
 <body>
 
     <header>
-        <img id="logo" 
-             src="imagens/logo-recupera-fotos.webp" 
-             alt="Logo Recupera Fotos - Resgate de Mídias Apagadas"
-             width="250" 
-             height="70"
-             loading="lazy">
-    </header>
+        </header>
 
     <div class="container">
         
@@ -330,29 +325,4 @@
                 }
                 
                 var countdown = setInterval(function () {
-                    var now = new Date().getTime();
-                    var distance = expiryTime - now;
-
-                    if (distance < 0) {
-                        clearInterval(countdown);
-                        timerDisplay.textContent = "Oferta Expirada!";
-                        return;
-                    }
-                    
-                    minutes = Math.floor( (distance % (1000 * 60 * 60)) / (1000 * 60) );
-                    seconds = Math.floor( (distance % (1000 * 60)) / 1000 );
-
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                    timerDisplay.textContent = minutes + ":" + seconds;
-
-                }, 1000);
-            }
-
-            startTimer(duration);
-        });
-    </script>
-
-</body>
-</html>
+                    var now = new Date().
